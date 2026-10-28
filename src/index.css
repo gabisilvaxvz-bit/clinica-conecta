@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/*
+  Tema do projeto (Tailwind v4): cada --color-xxx vira utilitários automaticamente
+  (bg-xxx, text-xxx, border-xxx...). Ex.: --color-fundo => bg-fundo.
+*/
 @theme {
   --color-marinho: #0D1933;
   --color-safira: #06276C;
@@ -8,13 +12,18 @@
   --color-baby: #ADD9E6;
   --color-red: #F90004;
   --color-white: #FFFFFF;
-  --color-gray1:#121214
+  --color-gray1: #121214; /* ATENÇÃO: faltava o ";" aqui, o que quebrava gray2 e gray4 */
   --color-gray2: #323238;
   --color-gray4: #8D8D99;
-  
+
+  /* Novas cores usadas no layout e nos cards de KPI */
+  --color-fundo: #EDF2FA;   /* fundo geral da área de conteúdo */
+  --color-borda: #DCE4F0;   /* borda suave dos cards */
+  --color-icone: #E6EDF9;   /* quadradinho claro atrás dos ícones dos KPIs */
 
   --font-sans: 'Manrope', sans-serif;
 
-  
+  /* Largura da Sidebar: usada no Sidebar (w-sidebar) e no Layout (ml-sidebar),
+     assim as duas sempre ficam sincronizadas. */
+  --spacing-sidebar: 18.5rem;
 }
-
