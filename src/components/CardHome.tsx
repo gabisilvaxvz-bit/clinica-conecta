@@ -5,18 +5,7 @@ interface CardHomeProps {
   icone: string;      // classe do Bootstrap Icons (ex.: "bi-calendar")
 }
 
-/*
-  Card de KPI da Home. Estrutura (igual ao design):
 
-  ┌──────────────────────────┐
-  │ VALOR              [ícone]│   <- linha 1: justify-between separa número e ícone
-  │ Título                    │
-  │ descrição                 │
-  └──────────────────────────┘
-
-  É só apresentação: recebe tudo por props, então para mudar os dados
-  basta editar a lista `kpis` na Home (ou trocar por dados de uma API).
-*/
 export function CardHome({ valor, titulo, descricao, icone }: CardHomeProps) {
   return (
     <div className="rounded-2xl border border-borda bg-white p-6">

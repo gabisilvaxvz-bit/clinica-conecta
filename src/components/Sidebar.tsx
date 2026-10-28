@@ -19,7 +19,7 @@ const menu = [
 
 // Classes comuns a todos os links (o "Sair" reaproveita e só troca a cor)
 const linkBase =
-  "flex w-full items-center gap-3 whitespace-nowrap rounded-lg p-2 transition hover:bg-bic";
+  "flex w-full  mt-4 items-center gap-3 whitespace-nowrap rounded-lg p-2 transition hover:bg-bic";
 
 export default function Sidebar() {
   // Pega o caminho atual para destacar o item ativo do menu
