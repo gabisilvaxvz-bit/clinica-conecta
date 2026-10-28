@@ -15,11 +15,13 @@
   --color-gray1: #121214; /* ATENÇÃO: faltava o ";" aqui, o que quebrava gray2 e gray4 */
   --color-gray2: #323238;
   --color-gray4: #8D8D99;
+  --color-gray5: #6B7FA3;
 
   /* Novas cores usadas no layout e nos cards de KPI */
   --color-fundo: #EDF2FA;   /* fundo geral da área de conteúdo */
   --color-borda: #DCE4F0;   /* borda suave dos cards */
   --color-icone: #E6EDF9;   /* quadradinho claro atrás dos ícones dos KPIs */
+  --color-iconesTopBar: #EEF3FA; /* quadradinho claro atrás dos ícones da TopBar */
 
   --font-sans: 'Manrope', sans-serif;
 
