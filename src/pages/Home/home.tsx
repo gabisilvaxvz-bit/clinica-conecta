@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <Layout title="Início">
       {/* Banner de boas-vindas (antes era o <main>; agora o <main> é do Layout) */}
-      <section className="rounded-2xl bg-ceu p-7">
+      <section className="rounded-2xl bg-ceu p-7 space-y-3">
         <p className="text-lg font-semibold text-marinho">Bom dia, Milena Mattos!</p>
         <h2 className="text-2xl font-bold text-white">Tudo Conectado, do seu jeito.</h2>
         <p className="text-white">
