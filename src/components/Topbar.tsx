@@ -26,14 +26,9 @@ export default function Topbar({ title }: TopbarProps) {
           <i className="bi bi-bell text-safira" style={{ strokeWidth: '2px', WebkitTextStroke: '1px' }}></i>
         </button>
 
-<<<<<<< HEAD
         <button className="flex items-center gap-2 rounded-xl bg-iconesTopBar px-3 py-2 text-left">
           {/* Quadrado com as iniciais */}
           <div className="flex size-9 items-center justify-center rounded-lg bg-bic font-bold text-baby">
-=======
-        <button className="flex items-center gap-2 rounded-xl bg-fundo px-3 py-2 text-left">
-          <div className="flex size-9 items-center justify-center rounded-lg bg-bic font-bold text-white">
->>>>>>> 0d72b11e162e1e7ba9eee2be27359ca46b100874
             MM
           </div>
           <div className="flex flex-col bg-iconesTopBar">
