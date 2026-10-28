@@ -19,7 +19,7 @@ const menu = [
 
 // Classes comuns a todos os links (o "Sair" reaproveita e só troca a cor)
 const linkBase =
-  "flex w-full  mt-4 items-center gap-3 whitespace-nowrap rounded-lg p-2 transition hover:bg-bic";
+  "flex w-full items-center gap-3 whitespace-nowrap rounded-lg p-2 transition hover:bg-bic";
 
 export default function Sidebar() {
   // Pega o caminho atual para destacar o item ativo do menu
@@ -33,12 +33,12 @@ export default function Sidebar() {
     <aside className="fixed top-0 left-0 flex h-screen w-sidebar flex-col justify-between overflow-y-auto bg-marinho p-5 text-sm text-white [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
       <div>
         {/* Logo */}
-        <div className="mb-6">
+        <div className="mb-9">
           <img src={logo} alt="Clínica Conecta" className="h-10 w-auto object-contain" />
         </div>
 
         <nav className="flex flex-col space-y-1">
-          <p className="text-sm font-medium text-baby">MENU</p>
+          <p className="mb-8 text-sm font-medium text-baby">MENU</p>
 
           {menu.map((item) => (
             <a
