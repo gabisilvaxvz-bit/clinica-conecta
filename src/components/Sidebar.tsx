@@ -1,4 +1,4 @@
-import logo from "../assets/logo.png";
+ ng";
 
 export default function Sidebar() {
   return (
