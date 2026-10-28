@@ -5,7 +5,7 @@ export default function Topbar() {
       {/* =========================================
           1. PARTE ESQUERDA: Textos 
       ========================================= */}
-      <div className="d-flex flex-column">
+      <div className="d-flex flex-column" >
         <span className="text-secondary" style={{ fontSize: '14px' }}>Portal do paciente /</span>
         <h1 className="h5 mb-0 fw-bold" style={{ color: '#0f172a' }}>Agendar consulta</h1>
       </div>
