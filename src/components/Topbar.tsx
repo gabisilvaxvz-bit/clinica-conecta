@@ -9,22 +9,11 @@ interface TopbarProps {
 */
 export default function Topbar({ title }: TopbarProps) {
   return (
-<<<<<<< HEAD
-    <header className="d-flex align-items-center justify-content-between bg-white px-4 py-3 border-bottom">
-      
-      {/* =========================================
-          1. PARTE ESQUERDA: Textos 
-      ========================================= */}
-      <div className="d-flex flex-column" >
-        <span className="text-secondary" style={{ fontSize: '14px' }}>Portal do paciente /</span>
-        <h1 className="h5 mb-0 fw-bold" style={{ color: '#0f172a' }}>Agendar consulta</h1>
-=======
     <header className="flex items-center justify-between border-b border-borda bg-white px-6 py-3">
       {/* 1. Esquerda: caminho + título da página */}
       <div className="flex flex-col">
         <span className="text-sm text-gray4">Portal do paciente /</span>
         <h1 className="text-xl font-bold text-marinho">{title}</h1>
->>>>>>> d8cc193e0f39ec6c7d04f5c2c4a2b3b2c9b2d1fa
       </div>
 
       {/* 2. Centro: busca. `flex-1` ocupa o espaço livre, `max-w-xl` limita */}
