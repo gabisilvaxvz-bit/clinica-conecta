@@ -25,9 +25,9 @@ export default function Layout({ title, children }: LayoutProps) {
   return (
     <div className="min-h-screen bg-fundo font-sans">
       <Sidebar />
-      <div className="ml-sidebar flex min-h-screen flex-col">
+      <div className="flex min-h-screen min-w-0 flex-col lg:ml-sidebar">
         <Topbar title={title} />
-        <main className="flex-1 space-y-6 p-7">{children}</main>
+        <main className="flex-1 space-y-4 p-4 sm:space-y-6 sm:p-6 lg:p-7">{children}</main>
       </div>
     </div>
   );

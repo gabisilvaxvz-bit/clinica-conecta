@@ -27,5 +27,5 @@
 
   /* Largura da Sidebar: usada no Sidebar (w-sidebar) e no Layout (ml-sidebar),
      assim as duas sempre ficam sincronizadas. */
-  --spacing-sidebar: 18.5rem;
+  --spacing-sidebar: 14rem;
 }

@@ -1,13 +1,9 @@
 import logo from "../assets/logo.svg";
+import {Link} from "react-router-dom";
 
-/*
-  Itens do menu em uma lista: para adicionar/remover/reordenar uma opção
-  basta mexer aqui, em vez de copiar o <a> inteiro 9 vezes.
-  `to` ainda é "#" nas páginas que não têm rota; troque quando criar a rota.
-*/
 const menu = [
-  { label: "Início", icon: "bi-house-door", to: "/" },
-  { label: "Agendar consultas", icon: "bi-calendar-plus", to: "#" },
+  { label: "Inicio", icon: "bi-house-door", to: "/" },
+  { label: "Agendar consultas", icon: "bi-calendar-plus", to: "/agendar-consulta1" },
   { label: "Agendar exames", icon: "bi-file-medical", to: "#" },
   { label: "Meus encaminhamentos", icon: "bi-arrow-right-circle", to: "#" },
   { label: "Resultados de exames", icon: "bi-search", to: "#" },
@@ -17,47 +13,59 @@ const menu = [
   { label: "Configurações", icon: "bi-gear", to: "#" },
 ];
 
-// Classes comuns a todos os links (o "Sair" reaproveita e só troca a cor)
-const linkBase =
-  "flex w-full items-center gap-3 whitespace-nowrap rounded-lg p-2 transition hover:bg-bic";
+const linkBase = "flex w-full items-center gap-2 whitespace-nowrap rounded-md px-2 py-2 text-xs transition hover:bg-bic hover:text-white";
 
 export default function Sidebar() {
-  // Pega o caminho atual para destacar o item ativo do menu
   const ativo = window.location.pathname;
 
   return (
-    // `fixed` + `w-sidebar`: largura vem do index.css e é a mesma usada pelo Layout.
-    // `justify-between` empurra o bloco do menu para cima e o "Sair" para o rodapé.
-    // O overflow só age em telas muito baixas, e a barra de rolagem fica oculta
-    // (antes ela aparecia por causa do `mb-16` no "Sair" + margens grandes).
-    <aside className="fixed top-0 left-0 flex h-screen w-sidebar flex-col justify-between overflow-y-auto bg-marinho p-5 text-sm text-white [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-      <div>
-        {/* Logo */}
-        <div className="mb-9">
-          <img src={logo} alt="Clínica Conecta" className="h-10 w-auto object-contain" />
+    <>
+      <aside className="fixed top-0 left-0 hidden h-screen w-sidebar flex-col overflow-y-auto bg-marinho p-4 text-gray5 lg:flex [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div>
+          <div className="mb-5">
+            <img src={logo} alt="Clínica Conecta" className="h-8 w-auto object-contain" />
+          </div>
+
+          <nav className="flex flex-col gap-1">
+            <p className="mb-3 text-[11px] font-semibold tracking-wide text-baby">MENU</p>
+            {menu.map((item) => (
+              <Link
+                key={item.label}
+                to={item.to}
+                aria-current={item.to === ativo ? "page" : undefined}
+                className={`${linkBase} ${item.to === ativo ? "bg-bic text-white" : "text-gray5"}`}
+              >
+                <i className={`bi ${item.icon} text-sm`} aria-hidden="true"></i>
+                {item.label}
+              </Link>
+            ))}
+          </nav>
         </div>
 
-        <nav className="flex flex-col space-y-1">
-          <p className="mb-8 text-sm font-medium text-baby">MENU</p>
+        <a href="#" className={`${linkBase} mt-6 text-red hover:bg-red/10 hover:text-red`}>
+          <i className="bi bi-box-arrow-right text-sm" aria-hidden="true"></i>
+          Sair
+        </a>
+      </aside>
 
+      <div className="flex flex-col bg-marinho text-white lg:hidden">
+        <div className="flex h-14 items-center px-4">
+          <img src={logo} alt="Clínica Conecta" className="h-8 w-auto object-contain" />
+        </div>
+        <nav aria-label="Navegação principal" className="flex gap-1 overflow-x-auto px-3 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {menu.map((item) => (
             <a
               key={item.label}
               href={item.to}
-              className={`${linkBase} text-white ${item.to === ativo ? "bg-bic" : ""}`}
+              aria-current={item.to === ativo ? "page" : undefined}
+              className={`flex shrink-0 items-center gap-2 rounded-lg px-3 py-2 text-xs transition hover:bg-bic ${item.to === ativo ? "bg-bic" : ""}`}
             >
-              <i className={`bi ${item.icon} text-lg`}></i>
+              <i className={`bi ${item.icon}`} aria-hidden="true"></i>
               {item.label}
             </a>
           ))}
         </nav>
       </div>
-
-      {/* Rodapé: "Sair" fixo embaixo, sem margens extras */}
-      <a href="#" className={`${linkBase} text-red`}>
-        <i className="bi bi-box-arrow-right text-lg"></i>
-        Sair
-      </a>
-    </aside>
+    </>
   );
 }
