@@ -10,7 +10,7 @@ const ETAPAS = [
 ];
 
 import React, { useState } from "react";
-export default function AgendamentoStepper() {
+
   // O estado continua igual: controlando a etapa atual na memória do React
   const [etapaAtual, setEtapaAtual] = useState<number>(2);
 
