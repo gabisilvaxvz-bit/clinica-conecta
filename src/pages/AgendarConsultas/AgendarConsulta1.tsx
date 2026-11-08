@@ -1,35 +1,225 @@
-
+import { useState } from "react";
 import Layout from "@components/Layout";
 
-{/*Parte Lógica da Barra de Progresso*/}
-const ETAPAS = [
-  { id: 1, label: "Especialidade" },
-  { id: 2, label: "Médico" },
-  { id: 3, label: "Horário" },
-  { id: 4, label: "Confirmação" },
+type StatusEtapa = "pendente" | "ativa" | "concluida";
+
+type Etapa = {
+  id: number;
+  titulo: string;
+};
+
+const etapas: Etapa[] = [
+  { id: 1, titulo: "Especialidade" },
+  { id: 2, titulo: "Médico" },
+  { id: 3, titulo: "Horário" },
+  { id: 4, titulo: "Confirmação" },
 ];
 
-import React, { useState } from "react";
+const especialidades = [
+  "Cardiologia",
+  "Dermatologia",
+  "Ortopedia",
+  "Neurologia",
+  "Ginecologia",
+  "Pediatria",
+  "Psiquiatria",
+  "Endocrinologia",
+  "Oftalmologia",
+  "Gastroenterologia",
+  "Urologia",
+  "Reumatologia",
+  "Otorrinolaringologia",
+  "Nefrologia",
+  "Hematologia",
+  "Oncologia"
+];
 
-  // O estado continua igual: controlando a etapa atual na memória do React
-  const [etapaAtual, setEtapaAtual] = useState<number>(2);
+const medicos = [
+  "Dr. Carlos Daniel",
+  "Dra. Sophia",
+  "Dr. Juan Pablo",
+  "Dra. Darlla Nicholly",
+  "Dr. Emanuel",
+  "Dra. Vitória Dias",
+  "Dr. Isaac",
+  "Dra. Milena Mattos",
+  "Dr. José Tobias",
+  "Dra. Gabrielly Mariano",
+  "Dr. Levi Soares",
+  "Dra. Maíra Thaffiny",
+  "Dr. Levi",
+  "Dra. Ana Thalya",
+  "Dr. Matheus",
+  "Dra. Antonia Nara",
+];
 
-  // Array de etapas (dados locais)
-  const ETAPAS = [
-    { id: 1, label: "Especialidade" },
-    { id: 2, label: "Médico" },
-    { id: 3, label: "Horário" },
-    { id: 4, label: "Confirmação" },
-  ];
-
+const horarios = ["08:00", "09:30", "11:00", "13:30", "15:00", "16:30"];
 
 export default function AgendarConsulta1() {
-    return(
-        <Layout title="Agendar Consultas">
-              return (
-                <div className="w-full max-w-5xl mx-auto bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden"></div>
-                <div className="grid grid-cols-4 w-full"></div>
+  const [etapaAtualId, setEtapaAtualId] = useState(1);
+  const [especialidadeSelecionada, setEspecialidadeSelecionada] = useState<
+    string | null
+  >(null);
+  const [medicoSelecionado, setMedicoSelecionado] = useState<string | null>(
+    null,
+  );
+  const [horarioSelecionado, setHorarioSelecionado] = useState<string | null>(
+    null,
+  );
 
-        </Layout>
+  const podeAvancar =
+    (etapaAtualId === 1 && especialidadeSelecionada !== null) ||
+    (etapaAtualId === 2 && medicoSelecionado !== null) ||
+    (etapaAtualId === 3 && horarioSelecionado !== null);
+
+  const selecionarOpcao = (opcao: string, selecionada: boolean) => {
+    const classes = selecionada
+      ? "border-ceu bg-ceu font-bold text-white"
+      : "border-gray7 bg-iconesTopBar text-steelBlue hover:bg-[#e3edf8]";
+
+    return (
+      <button
+        key={opcao}
+        type="button"
+        aria-pressed={selecionada}
+        onClick={() => {
+          if (etapaAtualId === 1) setEspecialidadeSelecionada(opcao);
+          if (etapaAtualId === 2) setMedicoSelecionado(opcao);
+          if (etapaAtualId === 3) setHorarioSelecionado(opcao);
+        }}
+        className={`min-h-[38px] rounded-lg border px-3 text-xs transition-colors ${classes}`}
+      >
+        {opcao}
+      </button>
     );
+  };
+
+  return (
+    <Layout title="Agendar Consulta">
+      <section aria-labelledby="agendar-consulta-titulo">
+        <div className="mt-6 overflow-x-auto rounded-xl border border-[#d8e2f0] bg-white">
+          <ol
+            aria-label="Etapas do agendamento"
+            className="grid min-w-[680px] grid-cols-4"
+          >
+            {etapas.map((etapa, index) => {
+              const status: StatusEtapa =
+                etapa.id < etapaAtualId
+                  ? "concluida"
+                  : etapa.id === etapaAtualId
+                    ? "ativa"
+                    : "pendente";
+
+              return (
+                <li
+                  key={etapa.id}
+                  aria-current={status === "ativa" ? "step" : undefined}
+                  className={`flex min-h-[54px] items-center gap-3 px-5 ${
+                    index < etapas.length - 1 ? "border-r border-gray7" : ""
+                  } ${status === "ativa" ? "bg-iconesTopBar" : "bg-white"}`}
+                >
+                  <span
+                    className={`flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-full text-xs font-semibold ${
+                      status === "pendente"
+                        ? "bg-iconesTopBar text-steelBlue"
+                        : "bg-bic text-white"
+                    }`}
+                  >
+                    {status === "concluida" ? "✓" : etapa.id}
+                  </span>
+                  <span
+                    className={`whitespace-nowrap text-sm ${
+                      status === "ativa"
+                        ? "font-semibold text-bic"
+                        : "text-gray5"
+                    }`}
+                  >
+                    {etapa.titulo}
+                  </span>
+                </li>
+              );
+            })}
+          </ol>
+        </div>
+
+        <div className="mt-6 rounded-xl border border-gray7 bg-white p-4 sm:p-6">
+          <h1
+            id="agendar-consulta-titulo"
+            className="text-base font-bold text-marinho"
+          >
+            {etapaAtualId === 1 && "Selecione a Especialidade"}
+            {etapaAtualId === 2 && "Escolha o Médico"}
+            {etapaAtualId === 3 && "Escolha o Horário"}
+            {etapaAtualId === 4 && "Confirme seu agendamento"}
+          </h1>
+
+          {etapaAtualId === 1 && (
+            <div className="mt-5 grid grid-cols-2 gap-x-5 gap-y-7 md:grid-cols-4 md:gap-x-7">
+              {especialidades.map((especialidade) =>
+                selecionarOpcao(
+                  especialidade,
+                  especialidade === especialidadeSelecionada,
+                ),
+              )}
+            </div>
+          )}
+
+          {etapaAtualId === 2 && (
+            <div className="mt-5 grid grid-cols-2 gap-3 md:grid-cols-4">
+              {medicos.map((medico) =>
+                selecionarOpcao(medico, medico === medicoSelecionado),
+              )}
+            </div>
+          )}
+
+          {etapaAtualId === 3 && (
+            <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6">
+              {horarios.map((horario) =>
+                selecionarOpcao(horario, horario === horarioSelecionado),
+              )}
+            </div>
+          )}
+
+          {etapaAtualId === 4 && (
+            <dl className="mt-5 space-y-3 text-sm text-steelBlue">
+              <div>
+                <dt className="font-semibold">Especialidade</dt>
+                <dd>{especialidadeSelecionada}</dd>
+              </div>
+              <div>
+                <dt className="font-semibold">Médico</dt>
+                <dd>{medicoSelecionado}</dd>
+              </div>
+              <div>
+                <dt className="font-semibold">Horário</dt>
+                <dd>{horarioSelecionado}</dd>
+              </div>
+            </dl>
+          )}
+
+          <div className="mt-7 flex gap-3">
+            {etapaAtualId > 1 && (
+              <button
+                type="button"
+                onClick={() => setEtapaAtualId((atual) => atual - 1)}
+                className="rounded border px-4 py-2"
+              >
+                Voltar
+              </button>
+            )}
+            {etapaAtualId < etapas.length && (
+              <button
+                type="button"
+                onClick={() => setEtapaAtualId((atual) => atual + 1)}
+                disabled={!podeAvancar}
+                className="rounded bg-[#83cce2] px-4 py-2 text-white disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                Próximo
+              </button>
+            )}
+          </div>
+        </div>
+      </section>
+    </Layout>
+  );
 }
