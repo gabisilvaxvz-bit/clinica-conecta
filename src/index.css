@@ -5,10 +5,16 @@
   --color-safira: #06276C;
   --color-bic: #1042AE;
   --color-ceu: #87CEEA;
-  --color-bebe: #ADD9E6;
-  --color-vermelho: #F90004
+  --color-baby: #ADD9E6;
+  --color-red: #F90004;
+  --color-white: #FFFFFF;
+  --color-gray1:#121214
+  --color-gray2: #323238;
+  --color-gray4: #8D8D99;
+  
+
+  --font-sans: 'Manrope', sans-serif;
+
+  
 }
 
-@theme {
-  --font-sans: 'Manrope', sans-serif;
-}

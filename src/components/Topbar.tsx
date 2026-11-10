@@ -1,55 +1,55 @@
-export function Topbar() {
+export default function Topbar() {
   return (
-    <header className="w-full bg-white border-b border-slate-100 px-6 py-3 flex items-center justify-between gap-4">
-      {/* Esquerda: Breadcrumb e Título */}
-      <div className="flex flex-col min-w-max">
-        <span className="text-xs text-slate-400 font-normal">
-          Portal do paciente /
-        </span>
-        <h1 className="text-sm font-bold text-slate-900 leading-tight">
-          Agendar consulta
-        </h1>
+    <header className="d-flex align-items-center justify-content-between bg-white px-4 py-3 border-bottom">
+      
+      {/* =========================================
+          1. PARTE ESQUERDA: Textos 
+      ========================================= */}
+      <div className="d-flex flex-column">
+        <span className="text-secondary" style={{ fontSize: '14px' }}>Portal do paciente /</span>
+        <h1 className="h5 mb-0 fw-bold" style={{ color: '#0f172a' }}>Agendar consulta</h1>
       </div>
 
-      {/* Centro: Campo de Pesquisa */}
-      <div className="flex-1 max-w-3xl mx-4">
-        <div className="relative flex items-center">
-          <input
-            type="text"
-            placeholder="Buscar consultas, exames..."
-            className="w-full bg-[#f0f4f9] text-sm text-slate-800 placeholder-slate-400 pl-10 pr-4 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"
+      {/* =========================================
+          2. PARTE CENTRAL: Barra de Pesquisa 
+      ========================================= */}
+      <div className="flex-grow-1 mx-5" style={{ maxWidth: '600px' }}>
+        <div className="position-relative">
+          
+          <input 
+            type="text" 
+            placeholder="Buscar consultas, exames..." 
+            className="form-control rounded-pill bg-light border-0 py-2 ps-5"
           />
         </div>
       </div>
 
-      {/* Direita: Notificação e Perfil */}
-      <div className="flex items-center gap-3 min-w-max">
-        {/* Botão de Notificação */}
-        <button 
-          aria-label="Notificações"
-          className="p-2.5 bg-[#f0f4f9] hover:bg-slate-200/70 text-slate-700 rounded-xl transition-colors"
-        >
-
+      {/* =========================================
+          3. PARTE DIREITA: Sino e Perfil 
+      ========================================= */}
+      <div className="d-flex align-items-center gap-3">
+        
+        {/* Botão do Sino */}
+        <button className="btn btn-light d-flex align-items-center justify-content-center" style={{ width: '45px', height: '45px', borderRadius: '12px' }}>
+         
         </button>
 
-        {/* Menu do Perfil */}
-        <div className="flex items-center gap-3 bg-[#f0f4f9] hover:bg-slate-200/70 px-3 py-1.5 rounded-xl cursor-pointer transition-colors">
-          <div className="w-8 h-8 rounded-xl bg-blue-700 text-white flex items-center justify-center font-semibold text-xs">
+        {/* Botão do Perfil */}
+        <button className="btn btn-light d-flex align-items-center gap-2 border-0 text-start px-3 py-2" style={{ borderRadius: '12px' }}>
+          {/* Quadrado com iniciais */}
+          <div className="bg-primary text-white fw-bold d-flex align-items-center justify-content-center rounded" style={{ width: '38px', height: '38px' }}>
             MM
           </div>
-          <div className="flex flex-col text-left">
-            <span className="text-xs font-bold text-slate-900 leading-tight">
-              Milena Mattos
-            </span>
-            <span className="text-[11px] text-slate-400 font-normal leading-tight">
-              Paciente
-            </span>
+          
+          <div className="d-flex flex-column">
+            <span className="fw-bold" style={{ color: '#0f172a', fontSize: '14px' }}>Milena Mattos</span>
+            <span className="text-secondary" style={{ fontSize: '12px' }}>Paciente</span>
           </div>
+          
+          
+        </button>
 
-        </div>
       </div>
     </header>
   );
 }
-
-export default Topbar;
