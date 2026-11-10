@@ -1,46 +1,41 @@
-type TopbarProps = {
-  title?: string;
-};
+interface TopbarProps {
+  title: string;
+}
 
-export default function Topbar({ title = "Início" }: TopbarProps) {
+export default function Topbar({ title }: TopbarProps) {
   return (
-    <header className="flex items-center justify-between gap-6 bg-white px-8 py-3.5 border-b border-[#E8EEF5]">
-      <div className="flex flex-col min-w-40">
-        <span className="text-[13px] text-gray4">Portal do paciente /</span>
-        <h1 className="text-lg font-bold text-marinho m-0 leading-tight">{title}</h1>
+    <header className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-3 gap-y-3 border-b border-borda bg-white px-4 py-3 md:flex md:justify-between md:px-6">
+      <div className="min-w-0">
+        <span className="text-xs text-gray5 sm:text-sm">Portal do paciente /</span>
+        <h1 className="truncate text-lg font-bold text-safira sm:text-sm">{title}</h1>
       </div>
 
-      <div className="flex-1 max-w-xl">
-        <label className="relative block">
-          <i className="bi bi-search absolute left-4 top-1/2 -translate-y-1/2 text-gray4" />
+      <div className="col-span-2 row-start-2 w-full md:mx-4 md:w-auto md:max-w-xl md:flex-1 lg:mx-8">
+        <div className="relative">
+          <i className="bi bi-search absolute top-1/2 left-4 -translate-y-1/2 text-gray5"></i>
           <input
-            type="search"
+            type="text"
             placeholder="Buscar consultas, exames..."
-            className="w-full rounded-full bg-[#F4F7FB] border-0 py-2.5 pl-11 pr-4 text-sm text-marinho placeholder:text-gray4 outline-none"
+            className="w-full rounded-xl bg-iconesTopBar py-2 pr-4 pl-11 text-sm outline-none focus:ring-2 focus:ring-bic text-gray5 placeholder:text-gray5"
           />
         </label>
       </div>
 
-      <div className="flex items-center gap-3">
-        <button
-          type="button"
-          className="w-11 h-11 rounded-xl bg-[#F4F7FB] text-marinho flex items-center justify-center border-0"
-          aria-label="Notificações"
-        >
-          <i className="bi bi-bell text-lg" />
+      <div className="col-start-2 row-start-1 flex items-center gap-2 sm:gap-3">
+        <button aria-label="Notificações" className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-iconesTopBar text-marinho sm:size-11">
+          <i className="bi bi-bell text-safira" style={{ strokeWidth: '2px', WebkitTextStroke: '1px' }}></i>
         </button>
 
-        <button
-          type="button"
-          className="flex items-center gap-2 rounded-xl bg-[#F4F7FB] border-0 text-start px-3 py-1.5"
-        >
-          <div className="w-9 h-9 rounded-lg bg-bic text-white font-bold flex items-center justify-center text-sm">
+        <button className="flex items-center gap-2 rounded-xl bg-iconesTopBar p-1.5 text-left sm:px-3 sm:py-2">
+          {/* Quadrado com as iniciais */}
+          <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-bic font-bold text-baby sm:size-9">
             MM
           </div>
-          <div className="flex flex-col leading-tight">
-            <span className="font-bold text-sm text-marinho">Milena Mattos</span>
-            <span className="text-xs text-gray4">Paciente</span>
+          <div className="hidden flex-col bg-iconesTopBar sm:flex">
+            <span className="text-sm font-bold text-marinho">Milena Mattos</span>
+            <span className="text-xs text-gray5">Paciente</span>
           </div>
+          <i className="bi bi-chevron-down hidden text-xs text-gray5 sm:inline" style={{ WebkitTextStroke: '1px' }}></i>
         </button>
       </div>
     </header>
