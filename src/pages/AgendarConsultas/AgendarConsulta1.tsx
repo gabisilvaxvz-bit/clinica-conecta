@@ -34,24 +34,67 @@ const especialidades = [
   "Oncologia"
 ];
 
-const medicos = [
-  "Dr. Carlos Daniel",
-  "Dra. Sophia",
-  "Dr. Juan Pablo",
-  "Dra. Darlla Nicholly",
-  "Dr. Emanuel",
-  "Dra. Vitória Dias",
-  "Dr. Isaac",
-  "Dra. Milena Mattos",
-  "Dr. José Tobias",
-  "Dra. Gabrielly Mariano",
-  "Dr. Levi Soares",
-  "Dra. Maíra Thaffiny",
-  "Dr. Levi",
-  "Dra. Ana Thalya",
-  "Dr. Matheus",
-  "Dra. Antonia Nara",
-];
+const medicosPorEspecialidade: Record<string, string[]> = {
+  //O string[] serve para colocar os nomes dos médicos como uma lista, e ele vai perrcorer a lista de especialidades e colocar os médicos que pertencem a cada especialidade
+  Cardiologia: ["Dr. João Silva", "Dra. Maria Oliveira", "Dr. Carlos Pereira", "Dra. Fernanda Costa", "Dr. Lucas Almeida", "Dra. Ana Souza",
+                "Dr. Pedro Santos", "Dra. Juliana Lima", "Dr. Rafael Rocha", "Dra. Camila Martins","Dr. Bruno Ferreira", "Dra. Mariana Gomes",
+                "Dr. Felipe Ribeiro", "Dra. Larissa Mendes", "Dr. Gustavo Carvalho"
+  ],
+  Dermatologia: ["Dr. Pedro Santos", "Dra. Ana Costa", "Dr. Lucas Almeida", "Dra. Fernanda Lima", "Dr. Rafael Souza", "Dra. Camila Rocha", 
+                "Dr. Bruno Martins", "Dra. Juliana Ferreira","Dr. Felipe Ribeiro", "Dra. Mariana Gomes", "Dr. Gustavo Carvalho", "Dra. Larissa Mendes",
+                "Dr. Ricardo Azevedo", "Dra. Patrícia Nunes","Dr. André Pires", "Dra. Vanessa Teixeira"
+  ],
+  Ortopedia: ["Dr. Lucas Almeida", "Dra. Fernanda Lima", "Dr. Rafael Souza", "Dra. Camila Rocha", "Dr. Bruno Martins", "Dra. Juliana Ferreira", "Dr. Felipe Ribeiro", "Dra. Mariana Gomes",
+              "Dr. Gustavo Carvalho", "Dra. Larissa Mendes", "Dr. Ricardo Azevedo", "Dra. Patrícia Nunes","Dr. André Pires", "Dra. Vanessa Teixeira",
+              "Dr. Eduardo Farias", "Dra. Renata Barros"
+  ], 
+  Neurologia: ["Dr. Rafael Souza", "Dra. Camila Rocha", "Dr. Bruno Martins", "Dra. Juliana Ferreira", "Dr. Felipe Ribeiro", "Dra. Mariana Gomes", "Dr. Gustavo Carvalho", "Dra. Larissa Mendes",
+               "Dr. Ricardo Azevedo", "Dra. Patrícia Nunes","Dr. André Pires", "Dra. Vanessa Teixeira","Dr. Eduardo Farias", "Dra. Renata Barros",
+               "Dr. Marcelo Tavares", "Dra. Aline Monteiro"
+  ],
+  Ginecologia: ["Dr. Bruno Martins", "Dra. Juliana Ferreira", "Dr. Felipe Ribeiro", "Dra. Mariana Gomes", "Dr. Gustavo Carvalho", "Dra. Larissa Mendes", "Dr. Ricardo Azevedo", "Dra. Patrícia Nunes",
+                "Dr. André Pires", "Dra. Vanessa Teixeira","Dr. Eduardo Farias", "Dra. Renata Barros","Dr. Marcelo Tavares", "Dra. Aline Monteiro",
+                "Dr. Vinícius Cardoso", "Dra. Beatriz Cunha"
+  ],
+  Pediatria: ["Dr. Felipe Ribeiro", "Dra. Mariana Gomes", "Dr. Gustavo Carvalho", "Dra. Larissa Mendes", "Dr. Ricardo Azevedo", "Dra. Patrícia Nunes","Dr. André Pires", "Dra. Vanessa Teixeira",
+              "Dr. Eduardo Farias", "Dra. Renata Barros","Dr. Marcelo Tavares", "Dra. Aline Monteiro","Dr. Vinícius Cardoso", "Dra. Beatriz Cunha",
+              "Dr. Thiago Moreira", "Dra. Camila Figueiredo"
+  ],
+  Psiquiatria: ["Dr. Gustavo Carvalho", "Dra. Larissa Mendes", "Dr. Ricardo Azevedo", "Dra. Patrícia Nunes","Dr. André Pires", "Dra. Vanessa Teixeira","Dr. Eduardo Farias", "Dra. Renata Barros",
+                "Dr. Marcelo Tavares", "Dra. Aline Monteiro","Dr. Vinícius Cardoso", "Dra. Beatriz Cunha","Dr. Thiago Moreira", "Dra. Camila Figueiredo",
+                "Dr. Daniel Castro", "Dra. Larissa Albuquerque"
+  ],
+Endocrinologia: ["Dr. Ricardo Azevedo", "Dra. Patrícia Nunes","Dr. André Pires", "Dra. Vanessa Teixeira","Dr. Eduardo Farias", "Dra. Renata Barros","Dr. Marcelo Tavares", "Dra. Aline Monteiro",
+                 "Dr. Vinícius Cardoso", "Dra. Beatriz Cunha","Dr. Thiago Moreira", "Dra. Camila Figueiredo","Dr. Daniel Castro", "Dra. Larissa Albuquerque",
+                 "Dr. Rodrigo Lima", "Dra. Juliana Teixeira"
+  ],
+  Oftalmologia: ["Dr. André Pires", "Dra. Vanessa Teixeira", "Dr. Eduardo Farias", "Dra. Renata Barros","Dr. Marcelo Tavares", "Dra. Aline Monteiro","Dr. Vinícius Cardoso", "Dra. Beatriz Cunha",
+                 "Dr. Thiago Moreira", "Dra. Camila Figueiredo","Dr. Daniel Castro", "Dra. Larissa Albuquerque","Dr. Rodrigo Lima", "Dra. Juliana Teixeira",
+                 "Dr. Felipe Rocha", "Dra. Mariana Oliveira"
+  ],
+  Gastroenterologia: ["Dr. Eduardo Farias", "Dra. Renata Barros","Dr. Marcelo Tavares", "Dra. Aline Monteiro","Dr. Vinícius Cardoso", "Dra. Beatriz Cunha","Dr. Thiago Moreira", "Dra. Camila Figueiredo",
+                      "Dr. Daniel Castro", "Dra. Larissa Albuquerque","Dr. Rodrigo Lima", "Dra. Juliana Teixeira","Dr. Felipe Rocha", "Dra. Mariana Oliveira","Dra.Gabrielly Mariano", "Dr. Gustavo Henrique"
+  ],
+  Urologia: ["Dr. Marcelo Tavares", "Dra. Aline Monteiro", "Dr. Vinícius Cardoso", "Dra. Beatriz Cunha","Dr. Thiago Moreira", "Dra. Camila Figueiredo","Dr. Daniel Castro", "Dra. Larissa Albuquerque","Dr. Rodrigo Lima", "Dra. Juliana Teixeira",
+             "Dr. Felipe Rocha", "Dra. Mariana Oliveira","Dra.Gabrielly Mariano", "Dr. Gustavo Henrique", "Dr. Rafael Almeida", "Dra. Larissa Martins"
+  ],
+  Reumatologia: ["Dr. Vinícius Cardoso", "Dra. Beatriz Cunha", "Dr. Thiago Moreira", "Dra. Camila Figueiredo","Dr. Daniel Castro", "Dra. Larissa Albuquerque","Dr. Rodrigo Lima", "Dra. Juliana Teixeira","Dr. Felipe Rocha", "Dra. Mariana Oliveira",
+                 "Dra.Gabrielly Mariano", "Dr. Gustavo Henrique", "Dr. Rafael Almeida", "Dra. Larissa Martins","Dr. Bruno Costa", "Dra. Fernanda Lima"
+  ],
+  Otorrinolaringologia: ["Dr. Thiago Moreira", "Dra. Camila Figueiredo", "Dr. Daniel Castro", "Dra. Larissa Albuquerque","Dr. Rodrigo Lima", "Dra. Juliana Teixeira","Dr. Felipe Rocha", "Dra. Mariana Oliveira","Dra.Gabrielly Mariano", "Dr. Gustavo Henrique",
+                         "Dr. Rafael Almeida", "Dra. Larissa Martins","Dr. Bruno Costa", "Dra. Fernanda Lima","Dr. Lucas Pereira", "Dra. Mariana Rocha"
+  ],
+  Nefrologia: ["Dr. Daniel Castro", "Dra. Larissa Albuquerque", "Dr. Rodrigo Lima", "Dra. Juliana Teixeira","Dr. Felipe Rocha", "Dra. Mariana Oliveira","Dra.Gabrielly Mariano", "Dr. Gustavo Henrique","Dr. Rafael Almeida", "Dra. Larissa Martins",
+               "Dr. Bruno Costa", "Dra. Fernanda Lima","Dr. Lucas Pereira", "Dra. Mariana Rocha","Dr. Rafael Moreira", "Dra. Camila Santos"
+  ],
+  Hematologia: ["Dr. Rodrigo Lima", "Dra. Juliana Teixeira", "Dr. Felipe Rocha", "Dra. Mariana Oliveira","Dra.Gabrielly Mariano", "Dr. Gustavo Henrique","Dr. Rafael Almeida", "Dra. Larissa Martins","Dr. Bruno Costa", "Dra. Fernanda Lima",
+                "Dr. Lucas Pereira", "Dra. Mariana Rocha","Dr. Rafael Moreira", "Dra. Camila Santos","Dr. Eduardo Nunes", "Dra. Larissa Figueiredo"
+  ],
+  Oncologia: ["Dr. Felipe Rocha", "Dra. Mariana Oliveira", "Dra.Gabrielly Mariano", "Dr. Gustavo Henrique","Dr. Rafael Almeida", "Dra. Larissa Martins","Dr. Bruno Costa", "Dra. Fernanda Lima","Dr. Lucas Pereira", "Dra. Mariana Rocha",
+              "Dr. Rafael Moreira", "Dra. Camila Santos","Dr. Eduardo Nunes", "Dra. Larissa Figueiredo","Dr. Vinícius Almeida", "Dra. Mariana Costa"
+  ],
+};
+
 
 const horarios = ["08:00", "09:30", "11:00", "13:30", "15:00", "16:30"];
 
@@ -66,6 +109,10 @@ export default function AgendarConsulta1() {
   const [horarioSelecionado, setHorarioSelecionado] = useState<string | null>(
     null,
   );
+
+  const medicosDisponiveis = especialidadeSelecionada
+  ? medicosPorEspecialidade[especialidadeSelecionada] ?? []
+  : [];
 
   const podeAvancar =
     (etapaAtualId === 1 && especialidadeSelecionada !== null) ||
@@ -83,11 +130,14 @@ export default function AgendarConsulta1() {
         type="button"
         aria-pressed={selecionada}
         onClick={() => {
-          if (etapaAtualId === 1) setEspecialidadeSelecionada(opcao);
+          if (etapaAtualId === 1) {
+            setEspecialidadeSelecionada(opcao);
+            setMedicoSelecionado(null);
+}
           if (etapaAtualId === 2) setMedicoSelecionado(opcao);
           if (etapaAtualId === 3) setHorarioSelecionado(opcao);
         }}
-        className={`min-h-[38px] rounded-lg border px-3 text-xs transition-colors ${classes}`}
+        className={`min-h-[42px] rounded-lg border px-3 text-xs transition-colors ${classes}`}
       >
         {opcao}
       </button>
@@ -153,6 +203,7 @@ export default function AgendarConsulta1() {
             {etapaAtualId === 4 && "Confirme seu agendamento"}
           </h1>
 
+          {/*Etapa 1: Seleção de especialidade, exibindo as especialidades disponíveis*/}
           {etapaAtualId === 1 && (
             <div className="mt-5 grid grid-cols-2 gap-x-5 gap-y-7 md:grid-cols-4 md:gap-x-7">
               {especialidades.map((especialidade) =>
@@ -164,14 +215,22 @@ export default function AgendarConsulta1() {
             </div>
           )}
 
+          {/*Etapa 2: Seleção de médico, exibindo os médicos disponíveis para a especialidade selecionada*/}
           {etapaAtualId === 2 && (
-            <div className="mt-5 grid grid-cols-2 gap-3 md:grid-cols-4">
-              {medicos.map((medico) =>
-                selecionarOpcao(medico, medico === medicoSelecionado),
-              )}
-            </div>
+            medicosDisponiveis.length === 0 ? (
+              <p className="mt-5 text-sm text-steelBlue">
+                Não há médicos cadastrados para esta especialidade.
+              </p>
+            ) : (
+              <div className="mt-5 grid grid-cols-2 gap-3 md:grid-cols-4">
+                {medicosDisponiveis.map((medico) =>
+                  selecionarOpcao(medico, medico === medicoSelecionado),
+                )}
+              </div>
+            )
           )}
 
+          {/*Etapa 3: Seleção de horário, exibindo os horários disponíveis para o médico selecionado*/}
           {etapaAtualId === 3 && (
             <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6">
               {horarios.map((horario) =>
@@ -212,7 +271,7 @@ export default function AgendarConsulta1() {
                 type="button"
                 onClick={() => setEtapaAtualId((atual) => atual + 1)}
                 disabled={!podeAvancar}
-                className="rounded bg-[#83cce2] px-4 py-2 text-white disabled:cursor-not-allowed disabled:opacity-50"
+                className="rounded-2xl bg-ceu px-4 py-1 text-white disabled:cursor-not-allowed disabled:opacity-50"
               >
                 Próximo
               </button>
