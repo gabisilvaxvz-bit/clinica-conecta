@@ -1,22 +1,11 @@
-import react from 'react';
-
-
 interface CardHomeProps {
   text: string;
   number: number;
   icon: string;
-  
-
 }
 
-
-
-export function CardHome({text,number,icon}: CardHomeProps) {
-  return(
-   
-      <div>
-        
-      </div>
-   
+  export default function CardHome()({ text, number, icon }: CardHomeProps) {
+  return (
+    <div data-text={text} data-number={number} data-icon={icon} />
   );
-}  
+}

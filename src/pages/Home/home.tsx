@@ -1,7 +1,8 @@
 
+import { Link } from "react-router-dom";
 import Sidebar from "../../components/Sidebar";
 import Topbar from "../../components/Topbar";
-import {CardHome} from "../../components/CardHome";
+import { CardHome } from "../../components/CardHome";
 
 export default function Home(){
     return(
@@ -10,7 +11,7 @@ export default function Home(){
                 <Sidebar/>
             </div>
             <div className="flex">
-                <Topbar/>
+                <Topbar title="Início" />
             </div>
 
             {/* Conteúdo Principal */}
@@ -25,11 +26,13 @@ export default function Home(){
                             <i className="bi bi-calendar-plus"></i>
                             Agendar Consulta
                         </button>   
-                        <button className=" flex items-center !rounded-lg gap-3 bg-baby text-white font-semibold py-2 px-4 mt-2 border border-dashed border-gray4  ">
+                        <Link
+                            to="/fila-online"
+                            className="flex items-center !rounded-lg gap-3 bg-baby text-white font-semibold py-2 px-4 mt-2 border border-dashed border-gray4 !no-underline"
+                        >
                             <i className="bi bi-people font-bold"></i>
-                            {/*Tem que descobrir como deixa o icone gordinho*/}
-                            Fila Online   
-                        </button> 
+                            Fila Online
+                        </Link> 
                     </div> 
                 </div>            
                 
