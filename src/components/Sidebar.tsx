@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import {Link} from "react-router-dom";
 
@@ -15,12 +14,6 @@ const menu = [
 ];
 
 const linkBase = "flex w-full items-center gap-2 whitespace-nowrap rounded-md px-2 py-2 text-xs transition hover:bg-bic hover:text-white";
-
-const itemClass = ({ isActive }: { isActive: boolean }) =>
-  [
-    "flex items-center gap-3 w-full p-2 rounded-lg text-white transition whitespace-nowrap !no-underline",
-    isActive ? "bg-bic" : "hover:bg-bic",
-  ].join(" ");
 
 export default function Sidebar() {
   const ativo = window.location.pathname;
