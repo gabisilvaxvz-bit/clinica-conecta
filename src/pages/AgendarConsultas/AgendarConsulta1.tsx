@@ -222,7 +222,7 @@ export default function AgendarConsulta1() {
                 Não há médicos cadastrados para esta especialidade.
               </p>
             ) : (
-              <div className="mt-5 grid grid-cols-2 gap-3 md:grid-cols-4">
+              <div className="mt-5 grid grid-cols-2 gap-7 md:grid-cols-4">
                 {medicosDisponiveis.map((medico) =>
                   selecionarOpcao(medico, medico === medicoSelecionado),
                 )}
@@ -261,7 +261,7 @@ export default function AgendarConsulta1() {
               <button
                 type="button"
                 onClick={() => setEtapaAtualId((atual) => atual - 1)}
-                className="rounded border px-4 py-2"
+                className="rounded-2xl border border-black bg-white mt-8 px-4 py-1 text-black disabled:cursor-not-allowed disabled:opacity-50"
               >
                 Voltar
               </button>
@@ -271,7 +271,7 @@ export default function AgendarConsulta1() {
                 type="button"
                 onClick={() => setEtapaAtualId((atual) => atual + 1)}
                 disabled={!podeAvancar}
-                className="rounded-2xl bg-ceu px-4 py-1 text-white disabled:cursor-not-allowed disabled:opacity-50"
+                className="rounded-2xl bg-ceu mt-8 px-4 py-1 text-white disabled:cursor-not-allowed disabled:opacity-50"
               >
                 Próximo
               </button>

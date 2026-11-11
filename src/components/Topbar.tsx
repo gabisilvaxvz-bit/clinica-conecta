@@ -18,7 +18,7 @@ export default function Topbar({ title }: TopbarProps) {
             placeholder="Buscar consultas, exames..."
             className="w-full rounded-xl bg-iconesTopBar py-2 pr-4 pl-11 text-sm outline-none focus:ring-2 focus:ring-bic text-gray5 placeholder:text-gray5"
           />
-        </label>
+        </div>
       </div>
 
       <div className="col-start-2 row-start-1 flex items-center gap-2 sm:gap-3">

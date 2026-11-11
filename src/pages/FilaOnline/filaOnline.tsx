@@ -1,41 +1,30 @@
-
-import CardHome from '../../components/CardHome';
 import PageShell from '../../components/PageShell';
-import Sidebar from '../../components/Sidebar';
-import Topbar from '../../components/Topbar';
+import './filaOnline.css';
 
 export default function FilaOnline() {
   return (
     <PageShell title="Fila Online">
-      <Sidebar />
-      <div className="content">
-        <Topbar />
-        <CardHome />
-      </div>
-    </PageShell>
-  );
-}
-        {/* Cabeçalho de aviso do check-in */}
+      <div className="content-container">
         <div className="checkin-banner">
           <span className="checkin-dot"></span>
           <span>Você está na fila - Check-in realizado às 09h12</span>
           <span className="checkin-date">19 out 2026 - Atualizado às 09h18</span>
         </div>
 
-        {/* Layout principal em grelha */}
         <div className="fila-grid">
-          {/* Lado esquerdo (Principal) */}
           <div className="fila-main">
             <div className="card-status-grande">
               <div className="card-header-status">
                 <h2>Seu atendimento está chegando.</h2>
                 <span className="badge-aguardando">Aguardando</span>
               </div>
+
               <div className="card-body-status">
                 <div className="posicao-box">
                   <span className="numero-posicao">03</span>
                   <span className="texto-posicao">sua posição na fila</span>
                 </div>
+
                 <div className="tempo-box">
                   <div className="tempo-info">
                     <i className="icon-relogio">🕒</i>
@@ -44,12 +33,12 @@ export default function FilaOnline() {
                   <p>Espera estimada - 2 pessoas à sua frente</p>
                 </div>
               </div>
+
               <p className="aviso-rodape">
                 A previsão pode variar conforme a duração dos atendimentos e as prioridades assistenciais. Sua posição não é uma garantia de horário.
               </p>
             </div>
 
-            {/* Cada passo */}
             <div className="card-passos">
               <h3>Cada passo</h3>
               <div className="passos-steps">
@@ -60,6 +49,7 @@ export default function FilaOnline() {
                     <p>09h12 - Recepção</p>
                   </div>
                 </div>
+
                 <div className="passo active">
                   <div className="passo-icon">🕒</div>
                   <div className="passo-info">
@@ -67,6 +57,7 @@ export default function FilaOnline() {
                     <p className="destaque">Você está aqui</p>
                   </div>
                 </div>
+
                 <div className="passo">
                   <div className="passo-icon">🩺</div>
                   <div className="passo-info">
@@ -77,13 +68,11 @@ export default function FilaOnline() {
               </div>
             </div>
 
-            {/* Alerta de rodapé */}
             <div className="info-rodape-unidade">
               <span>🔔 Permaneça na unidade e acompanhe a chamada da equipe. A fila online é um apoio, não substitui as orientações da recepção.</span>
             </div>
           </div>
 
-          {/* Lado direito (Detalhes e Alertas) */}
           <div className="fila-sidebar">
             <div className="card-detalhes">
               <h3>Seu atendimento de hoje</h3>
@@ -126,3 +115,4 @@ export default function FilaOnline() {
       </div>
     </PageShell>
   );
+}
