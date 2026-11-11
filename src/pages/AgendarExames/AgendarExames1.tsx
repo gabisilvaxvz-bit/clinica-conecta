@@ -6,10 +6,23 @@ const times = ["07h00", "07h30", "08h00", "08h30", "09h00", "09h30"];
 const monthNames = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
 const catalog = [
   { name: "Ultrasson Abdominal", type: "Imagem", unit: "Laboratório Centro", address: "Rua das Acácias, 120" },
-  { name: "Hemograma Completo", type: "Laboratorial", unit: "Laboratório Centro", address: "Rua das Acácias, 120" },
+  { name: "Ultrassonografia Pélvica", type: "Imagem", unit: "Laboratório Centro", address: "Rua das Acácias, 120" },
+  { name: "Ultrassonografia de Tireoide", type: "Imagem", unit: "Unidade Vila Nova", address: "Av. Brasil, 450" },
   { name: "Raio-X do Tórax", type: "Imagem", unit: "Unidade Vila Nova", address: "Av. Brasil, 450" },
-  { name: "Glicemia em Jejum", type: "Laboratorial", unit: "Unidade Vila Nova", address: "Av. Brasil, 450" },
+  { name: "Mamografia", type: "Imagem", unit: "Laboratório Centro", address: "Rua das Acácias, 120" },
   { name: "Eletrocardiograma", type: "Imagem", unit: "Laboratório Centro", address: "Rua das Acácias, 120" },
+  { name: "Hemograma Completo", type: "Laboratorial", unit: "Laboratório Centro", address: "Rua das Acácias, 120" },
+  { name: "Glicemia em Jejum", type: "Laboratorial", unit: "Unidade Vila Nova", address: "Av. Brasil, 450" },
+  { name: "Hemoglobina Glicada", type: "Laboratorial", unit: "Laboratório Centro", address: "Rua das Acácias, 120" },
+  { name: "Colesterol Total e Frações", type: "Laboratorial", unit: "Laboratório Centro", address: "Rua das Acácias, 120" },
+  { name: "Triglicerídeos", type: "Laboratorial", unit: "Unidade Vila Nova", address: "Av. Brasil, 450" },
+  { name: "TSH (Hormônio Tireoestimulante)", type: "Laboratorial", unit: "Laboratório Centro", address: "Rua das Acácias, 120" },
+  { name: "Creatinina", type: "Laboratorial", unit: "Unidade Vila Nova", address: "Av. Brasil, 450" },
+  { name: "Ureia", type: "Laboratorial", unit: "Unidade Vila Nova", address: "Av. Brasil, 450" },
+  { name: "Urina Tipo I", type: "Laboratorial", unit: "Laboratório Centro", address: "Rua das Acácias, 120" },
+  { name: "Parasitológico de Fezes", type: "Laboratorial", unit: "Unidade Vila Nova", address: "Av. Brasil, 450" },
+  { name: "Vitamina D", type: "Laboratorial", unit: "Laboratório Centro", address: "Rua das Acácias, 120" },
+  { name: "Beta-hCG", type: "Laboratorial", unit: "Unidade Vila Nova", address: "Av. Brasil, 450" },
 ];
 const today = new Date();
 today.setHours(0, 0, 0, 0);
@@ -138,6 +151,7 @@ export default function AgendarExames1() {
 function Summary({ label, value }: { label: string; value: string }) {
   return <div className="py-3"><p className="text-[10px] font-semibold uppercase text-gray5">{label}</p><p className="mt-1 text-xs font-bold leading-snug text-marinho">{value}</p></div>;
 }
+
 
 
 
