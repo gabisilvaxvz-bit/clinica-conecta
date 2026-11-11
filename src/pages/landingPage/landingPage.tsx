@@ -1,4 +1,3 @@
-import React from 'react';
 import { 
   Heart, 
   ArrowUpRight, 
@@ -24,7 +23,7 @@ export default function App() {
           </div>
         </div>
 
-        {/* Navigation Links */}
+        /* Navegacao Links */
         <nav className="hidden md:flex items-center gap-8 text-sm font-normal text-slate-300">
           <a href="#clinica" className="hover:text-white transition-colors">A clínica</a>
           <a href="#especialidades" className="hover:text-white transition-colors">Especialidades</a>
@@ -33,33 +32,33 @@ export default function App() {
           <a href="#contato" className="hover:text-white transition-colors">Contato</a>
         </nav>
 
-        {/* CTA Button Header */}
+        /* CTA Button Header */
         <button className="bg-[#1042AE] hover:bg-[#1042AE]/80 text-white text-xs font-medium px-4 py-2.5 rounded-md flex items-center gap-2 transition-all shadow-sm">
           <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
           Portal do paciente
         </button>
       </header>
 
-      {/* 2. Main Hero Section */}
+      /* 2. Main Hero Section */
       <main className="flex-1 w-full max-w-[1400px] mx-auto px-6 lg:px-12 pt-8 pb-12 flex flex-col justify-between">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-12">
           
-          {/* Lado Esquerdo: Conteúdo Textual */}
+          /* Lado Esquerdo: Conteúdo Textual */
           <div className="lg:col-span-6 space-y-6 pr-0 lg:pr-6">
-            {/* Tag Superior */}
+            /* Tag Superior */
             <div className="flex items-center gap-2 text-xs text-[#87CEEA] tracking-wider uppercase font-semibold">
               <span className="w-1.5 h-1.5 rounded-full bg-[#87CEEA]"></span>
               MAIS PROXIMIDADE. MAIS CUIDADO.
             </div>
 
-            {/* Título Principal com destaque azul na frase "conectado à" */}
+            /* Título Principal com destaque azul na frase "conectado à" */
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight">
               Seu cuidado,{' '}
               <span className="text-[#87CEEA]">conectado à</span>{' '}
               sua vida.
             </h1>
 
-            {/* Subtítulo */}
+            /* Subtítulo */
             <p className="text-slate-300 text-sm md:text-base leading-relaxed max-w-lg">
               Da primeira consulta ao acompanhamento, um caminho mais simples para cuidar de você. Presencialmente e no seu tempo.
             </p>
@@ -93,8 +92,8 @@ export default function App() {
           <div className="lg:col-span-6 relative">
             <div className="relative rounded-[28px] overflow-hidden shadow-2xl bg-slate-800">
               <img
-                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1000"
-                alt="Consulta Médica - Clínica Conecta"
+                src="SUA_URL_DA_IMAGEM_AQUI"
+                alt="Consulta Médica"
                 className="w-full h-[440px] md:h-[500px] object-cover object-center"
               />
 
