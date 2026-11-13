@@ -1,9 +1,8 @@
-import PageShell from '../../components/PageShell';
-import './filaOnline.css';
+import Layout from '@components/Layout';
 
 export default function FilaOnline() {
   return (
-    <PageShell title="Fila Online">
+    <Layout title="Fila Online">
       <div className="content-container">
         <div className="checkin-banner">
           <span className="checkin-dot"></span>
@@ -113,6 +112,6 @@ export default function FilaOnline() {
           </div>
         </div>
       </div>
-    </PageShell>
+    </Layout>
   );
 }

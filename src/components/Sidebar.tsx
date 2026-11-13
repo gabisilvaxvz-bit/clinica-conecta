@@ -8,7 +8,7 @@ const menu = [
   { label: "Meus encaminhamentos", icon: "bi-arrow-right-circle", to: "#" },
   { label: "Resultados de exames", icon: "bi-search", to: "#" },
   { label: "Meus agendamentos", icon: "bi-calendar-check", to: "#" },
-  { label: "Fila online", icon: "bi-people", to: "#" },
+  { label: "Fila online", icon: "bi-people", to: "/fila-online" },
   { label: "Meu perfil", icon: "bi-person", to: "#" },
   { label: "Configurações", icon: "bi-gear", to: "#" },
 ];
