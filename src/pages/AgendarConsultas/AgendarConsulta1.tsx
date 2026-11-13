@@ -8,6 +8,13 @@ type Etapa = {
   titulo: string;
 };
 
+type Medicos = {
+  id: number;
+  nome: string;
+  subtitulo: string;
+  icone: string;
+};
+
 const etapas: Etapa[] = [
   { id: 1, titulo: "Especialidade" },
   { id: 2, titulo: "Médico" },
