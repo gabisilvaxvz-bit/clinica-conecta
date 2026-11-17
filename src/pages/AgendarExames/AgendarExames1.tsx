@@ -104,7 +104,7 @@ export default function AgendarExames1() {
               <h3 className="mb-5 text-lg font-extrabold text-marinho">2. Escolha a data e o horário de coleta</h3>
               <div className="grid gap-6 md:grid-cols-[1.15fr_0.85fr]">
                 <div>
-                  <div className="mb-3 flex items-center justify-between"><h4 className="text-sm font-bold capitalize text-marinho">{monthLabel}</h4><div className="flex gap-1"><button type="button" aria-label="Mês anterior" disabled={visibleMonth.getFullYear() === today.getFullYear() && visibleMonth.getMonth() <= today.getMonth()} onClick={() => changeMonth(-1)} className="rounded-md bg-fundo px-3 py-2 text-gray5 transition-colors hover:bg-borda disabled:cursor-not-allowed disabled:opacity-40"><i className="bi bi-chevron-left" /></button><button type="button" aria-label="Próximo mês" onClick={() => changeMonth(1)} className="rounded-md bg-ceu px-3 py-2 text-white transition-colors hover:bg-safira"><i className="bi bi-chevron-right" /></button></div></div>
+                  <div className="mb-3 flex items-center justify-between"><h4 className="text-sm font-bold capitalize text-marinho">{monthLabel}</h4><div className="flex gap-3"><button type="button" aria-label="Mês anterior" disabled={visibleMonth.getFullYear() === today.getFullYear() && visibleMonth.getMonth() <= today.getMonth()} onClick={() => changeMonth(-1)} className="flex size-9 items-center justify-center rounded-[30%] bg-iconesTopBar text-gray5 transition-colors hover:bg-borda disabled:cursor-not-allowed disabled:opacity-100"><i className="bi bi-chevron-left text-lg" style={{ WebkitTextStroke: "1.5px" }} /></button><button type="button" aria-label="Próximo mês" onClick={() => changeMonth(1)} className="flex size-9 items-center justify-center rounded-[30%] bg-ceu text-white transition-colors hover:bg-safira"><i className="bi bi-chevron-right text-lg" style={{ WebkitTextStroke: "1.5px" }} /></button></div></div>
                   <div className="grid grid-cols-7 gap-y-2 text-center text-xs text-gray5">
                     {weekdays.map((day, i) => <span key={`${day}-${i}`} className="py-2">{day}</span>)}
                     {days.map((day, i) => {
@@ -116,7 +116,7 @@ export default function AgendarExames1() {
                   </div>
                 </div>
                 <div>
-                  <div className="mb-4 text-right"><p className="text-sm font-bold capitalize text-marinho">{selectedDateLabel}</p><p className="mt-1 text-sm text-gray5">Coleta · Horários de Brasília</p></div>
+                  <div className="mb-4 flex w-full flex-col items-end text-right"><p className="text-sm font-bold capitalize text-marinho">{selectedDateLabel}</p><p className="mt-1 text-sm text-gray5">Coleta · Horários de Brasília</p></div>
                   <div className="grid grid-cols-2 gap-3">{times.map(time => <button key={time} type="button" disabled={!selectedDate} aria-pressed={selectedTime === time} onClick={() => setSelectedTime(time)} className={`rounded-lg border px-4 py-3 text-sm font-extrabold transition-colors disabled:cursor-not-allowed disabled:opacity-40 ${selectedTime === time ? "border-ceu bg-ceu text-white" : "border-borda bg-iconesTopBar text-safira hover:border-ceu"}`}>{time}</button>)}</div>
                   <p className="mt-4 text-xs leading-relaxed text-gray5"><i className="bi bi-info-circle mr-1" />Leve o pedido e um documento com foto no dia da coleta.</p>
                 </div>
@@ -151,6 +151,7 @@ export default function AgendarExames1() {
 function Summary({ label, value }: { label: string; value: string }) {
   return <div className="py-3"><p className="text-[10px] font-semibold uppercase text-gray5">{label}</p><p className="mt-1 text-xs font-bold leading-snug text-marinho">{value}</p></div>;
 }
+
 
 
 
