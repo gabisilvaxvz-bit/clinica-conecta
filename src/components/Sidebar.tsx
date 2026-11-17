@@ -6,7 +6,7 @@ const menu = [
   { label: "Agendar consultas", icon: "bi-calendar-plus", to: "/agendar-consulta1" },
   { label: "Agendar exames", icon: "bi-file-medical", to: "/agendar-exames1" },
   { label: "Meus encaminhamentos", icon: "bi-arrow-right-circle", to: "/meus-encaminhamentos" },
-  { label: "Resultados de exames", icon: "bi-search", to: "#" },
+  { label: "Resultados de exames", icon: "bi-search", to: "/resultados-exames" },
   { label: "Meus agendamentos", icon: "bi-calendar-check", to: "#" },
   { label: "Fila online", icon: "bi-people", to: "/fila-online" },
   { label: "Meu perfil", icon: "bi-person", to: "#" },
