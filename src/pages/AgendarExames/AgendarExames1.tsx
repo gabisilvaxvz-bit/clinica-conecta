@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Layout from "@components/Layout";
 
 const weekdays = ["D", "S", "T", "Q", "Q", "S", "S"];
@@ -30,6 +31,7 @@ const toDateKey = (date: Date) => `${date.getFullYear()}-${date.getMonth()}-${da
 const sameDay = (a: Date, b: Date) => toDateKey(a) === toDateKey(b);
 
 export default function AgendarExames1() {
+  const navigate = useNavigate();
   const [visibleMonth, setVisibleMonth] = useState(new Date(today.getFullYear(), today.getMonth(), 1));
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
@@ -136,7 +138,10 @@ export default function AgendarExames1() {
               <Summary label="Local de coleta" value={selectedExam ? `${selectedExam.unit} · ${selectedExam.address}` : "Selecione um exame"} />
             </div>
             <p className="mt-4 text-xs leading-relaxed text-gray5">O valor, o preparo e o prazo de resultado serão informados pela unidade. Confirme as condições com a recepção.</p>
-            <button type="button" disabled={!canConfirm} className={`mt-5 w-full rounded-lg px-4 py-3 text-sm font-extrabold text-white transition-colors ${canConfirm ? "bg-ceu hover:bg-safira" : "cursor-not-allowed bg-ceu/50"}`}><i className="bi bi-check2 mr-1" />Confirmar exame</button>
+            <button type="button" disabled={!canConfirm} onClick={() => {
+              if (!selectedExam || !selectedDate || !selectedTime) return;
+              navigate("/agendar-exames2", { state: { exam: selectedExam.name, unit: selectedExam.unit, date: selectedDate.toISOString(), time: selectedTime } });
+            }} className={`mt-5 w-full rounded-lg px-4 py-3 text-sm font-extrabold text-white transition-colors ${canConfirm ? "bg-ceu hover:bg-safira" : "cursor-not-allowed bg-ceu/50"}`}><i className="bi bi-check2 mr-1" />Confirmar exame</button>
             <p className="mt-3 text-center text-[10px] text-gray5">Após confirmar, acompanhe a reserva em Meus agendamentos.</p>
           </aside>
         </div>

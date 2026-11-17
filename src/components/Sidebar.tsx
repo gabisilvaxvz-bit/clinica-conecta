@@ -5,7 +5,7 @@ const menu = [
   { label: "Inicio", icon: "bi-house-door", to: "/" },
   { label: "Agendar consultas", icon: "bi-calendar-plus", to: "/agendar-consulta1" },
   { label: "Agendar exames", icon: "bi-file-medical", to: "/agendar-exames1" },
-  { label: "Meus encaminhamentos", icon: "bi-arrow-right-circle", to: "#" },
+  { label: "Meus encaminhamentos", icon: "bi-arrow-right-circle", to: "/meus-encaminhamentos" },
   { label: "Resultados de exames", icon: "bi-search", to: "#" },
   { label: "Meus agendamentos", icon: "bi-calendar-check", to: "#" },
   { label: "Fila online", icon: "bi-people", to: "/fila-online" },
@@ -32,8 +32,8 @@ export default function Sidebar() {
               <Link
                 key={item.label}
                 to={item.to}
-                aria-current={item.to === ativo ? "page" : undefined}
-                className={`${linkBase} ${item.to === ativo ? "bg-bic text-white" : "text-gray5"}`}
+                aria-current={item.to === ativo || (item.to === "/agendar-exames1" && ativo === "/agendar-exames2") ? "page" : undefined}
+                className={`${linkBase} ${item.to === ativo || (item.to === "/agendar-exames1" && ativo === "/agendar-exames2") ? "bg-bic text-white" : "text-gray5"}`}
               >
                 <i className={`bi ${item.icon} text-sm`} aria-hidden="true"></i>
                 {item.label}
@@ -57,8 +57,8 @@ export default function Sidebar() {
             <a
               key={item.label}
               href={item.to}
-              aria-current={item.to === ativo ? "page" : undefined}
-              className={`flex shrink-0 items-center gap-2 rounded-lg px-3 py-2 text-xs transition hover:bg-bic ${item.to === ativo ? "bg-bic" : ""}`}
+              aria-current={item.to === ativo || (item.to === "/agendar-exames1" && ativo === "/agendar-exames2") ? "page" : undefined}
+              className={`flex shrink-0 items-center gap-2 rounded-lg px-3 py-2 text-xs transition hover:bg-bic ${item.to === ativo || (item.to === "/agendar-exames1" && ativo === "/agendar-exames2") ? "bg-bic" : ""}`}
             >
               <i className={`bi ${item.icon}`} aria-hidden="true"></i>
               {item.label}

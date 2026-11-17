@@ -24,7 +24,7 @@ const resultados = [
 const atalhos = [
   { texto: "Agendar Consulta", icone: "bi-calendar", to: "/agendar-consulta1" },
   { texto: "Agendar Exames", icone: "bi-prescription2", to: "/agendar-exames1" },
-  { texto: "Encaminhamentos", icone: "bi-send", to: "#" },
+  { texto: "Encaminhamentos", icone: "bi-send", to: "/meus-encaminhamentos" },
   { texto: "Fila Online", icone: "bi-people", to: "#" },
 ];
 
